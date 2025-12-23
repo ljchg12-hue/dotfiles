@@ -1,0 +1,97 @@
+# ============================================
+# ~/.claude/.gitignore
+# Claude Code 전역 설정 Git 제외 파일
+# ============================================
+
+# ============================================
+# 민감 정보 (Sensitive Data)
+# ============================================
+.credentials.json
+*.key
+*.pem
+*.token
+
+# ============================================
+# 로컬 설정 (Local Settings)
+# ============================================
+settings.local.json
+settings.local.json.backup*
+*.local.*
+
+# ============================================
+# 백업 파일 (Backups)
+# ============================================
+*.backup
+*.backup.*
+CLAUDE.md.backup.*
+CLAUDE.md.v*
+FLAGS.md.backup.*
+PRINCIPLES.md.backup.*
+PROTOCOL_QUICKREF.md.backup.*
+RULES.md.backup.*
+backup_*/
+backups/
+backup_legacy_*/
+
+# ============================================
+# 로그 & 데이터 (Logs & Data)
+# ============================================
+logs/
+*.log
+data.db
+history.jsonl
+stats-cache.json
+
+# ============================================
+# 캐시 & 메타데이터 (Cache & Metadata)
+# ============================================
+.superclaude-metadata.json
+.update_check
+stats-cache.json
+
+# ============================================
+# 임시 & 디버그 (Temporary & Debug)
+# ============================================
+shell-snapshots/
+file-history/
+debug/
+deprecated/
+
+# ============================================
+# 프로젝트별 데이터 (Project-specific)
+# ============================================
+projects/
+sessions/
+todos/
+plans/
+
+# ============================================
+# Chrome 관련 (Chrome-specific)
+# ============================================
+chrome/
+
+# ============================================
+# 생성된 파일 (Generated Files)
+# ============================================
+OPTIMIZATION_FINAL_COMPLETE.txt
+OPTIMIZATION_SUMMARY.txt
+
+# ============================================
+# 예외 (Exceptions) - 추적할 파일들
+# ============================================
+# 중요한 설정 파일들은 추적
+!CLAUDE.md
+!PERMISSIONS.md
+!SKILLS.md
+!SLASH_COMMANDS.md
+!REPORTING_TEMPLATE.md
+!VALIDATION_PROTOCOL.md
+!WORKFLOW_CHECKLIST.md
+
+# 중요한 디렉토리들은 추적
+!agents/
+!hooks/
+!scripts/
+!templates/
+!skills/
+!forensics/

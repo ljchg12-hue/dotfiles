@@ -1,0 +1,296 @@
+#!/bin/bash
+# Spec-Kit + /sc:* Hybrid Workflow Automation
+# Version: 1.0
+# Created: 2025-11-09
+
+set -e
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Banner
+echo -e "${BLUE}"
+cat << "EOF"
+╔═══════════════════════════════════════════════════════════════╗
+║   Spec-Kit + /sc:* Hybrid Workflow                            ║
+║   Intelligent Tool Selection & Automation                     ║
+╚═══════════════════════════════════════════════════════════════╝
+EOF
+echo -e "${NC}"
+
+# Functions
+print_info() {
+    echo -e "${BLUE}ℹ️  $1${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠️  $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+# Detect project type
+detect_project_type() {
+    if [ -d ".specify" ]; then
+        echo "spec-kit"
+    elif [ -f "package.json" ]; then
+        echo "existing-node"
+    elif [ -f "requirements.txt" ] || [ -f "pyproject.toml" ]; then
+        echo "existing-python"
+    elif [ -f "Cargo.toml" ]; then
+        echo "existing-rust"
+    elif [ -f "go.mod" ]; then
+        echo "existing-go"
+    else
+        echo "new"
+    fi
+}
+
+# Estimate task size
+estimate_task_size() {
+    local description="$1"
+    local word_count=$(echo "$description" | wc -w)
+
+    if [ $word_count -lt 5 ]; then
+        echo "small"
+    elif [ $word_count -lt 20 ]; then
+        echo "medium"
+    else
+        echo "large"
+    fi
+}
+
+# Recommend workflow
+recommend_workflow() {
+    local project_type="$1"
+    local task_size="$2"
+
+    echo ""
+    print_info "Project Type: $project_type"
+    print_info "Task Size: $task_size"
+    echo ""
+
+    if [ "$project_type" = "new" ] || [ "$task_size" = "large" ]; then
+        echo -e "${GREEN}Recommended: Spec-Kit First${NC}"
+        echo "1. specify init"
+        echo "2. Edit .specify/spec.md"
+        echo "3. /sc:brainstorm (deep analysis)"
+        echo "4. /sc:design (architecture)"
+        echo "5. /sc:implement (coding)"
+    elif [ "$task_size" = "small" ]; then
+        echo -e "${GREEN}Recommended: /sc:* Direct${NC}"
+        echo "1. /sc:implement (quick fix)"
+        echo "2. /sc:test (validation)"
+        echo "3. Update spec if needed"
+    else
+        echo -e "${GREEN}Recommended: Hybrid Approach${NC}"
+        echo "1. Light spec in .specify/spec.md"
+        echo "2. /sc:design (quick planning)"
+        echo "3. /sc:implement (coding)"
+        echo "4. /sc:test (validation)"
+    fi
+}
+
+# Interactive mode
+interactive_mode() {
+    echo -e "${BLUE}=== Interactive Workflow Selector ===${NC}"
+    echo ""
+
+    # Get task description
+    echo -n "Describe your task: "
+    read task_description
+
+    if [ -z "$task_description" ]; then
+        print_error "Task description required"
+        exit 1
+    fi
+
+    # Detect and recommend
+    local project_type=$(detect_project_type)
+    local task_size=$(estimate_task_size "$task_description")
+
+    recommend_workflow "$project_type" "$task_size"
+
+    echo ""
+    echo "Options:"
+    echo "1. Run Spec-Kit workflow"
+    echo "2. Run /sc:* workflow"
+    echo "3. Run hybrid workflow"
+    echo "4. Show manual commands"
+    echo "5. Exit"
+    echo ""
+    echo -n "Select (1-5): "
+    read choice
+
+    case $choice in
+        1)
+            run_speckit_workflow "$task_description"
+            ;;
+        2)
+            run_sc_workflow "$task_description"
+            ;;
+        3)
+            run_hybrid_workflow "$task_description"
+            ;;
+        4)
+            show_manual_commands
+            ;;
+        5)
+            print_info "Exiting..."
+            exit 0
+            ;;
+        *)
+            print_error "Invalid choice"
+            exit 1
+            ;;
+    esac
+}
+
+# Run Spec-Kit workflow
+run_speckit_workflow() {
+    local task="$1"
+
+    print_info "Starting Spec-Kit workflow..."
+
+    # Check if .specify exists
+    if [ ! -d ".specify" ]; then
+        print_warning ".specify folder not found. Initializing..."
+        specify init
+        print_success "Spec-Kit initialized"
+    fi
+
+    # Create task spec
+    echo "# New Task: $task" >> .specify/spec.md
+    echo "" >> .specify/spec.md
+    echo "## Requirements" >> .specify/spec.md
+    echo "- TODO: Define requirements" >> .specify/spec.md
+    echo "" >> .specify/spec.md
+
+    print_success "Task added to .specify/spec.md"
+    print_info "Next steps:"
+    echo "1. Edit .specify/spec.md with requirements"
+    echo "2. Use Claude: /sc:brainstorm --input .specify/spec.md"
+    echo "3. Use Claude: /sc:implement"
+}
+
+# Run /sc:* workflow
+run_sc_workflow() {
+    local task="$1"
+
+    print_info "Starting /sc:* workflow..."
+    print_info "Use Claude Code with these commands:"
+    echo ""
+    echo "1. /sc:troubleshoot \"$task\" (if fixing bug)"
+    echo "   OR"
+    echo "   /sc:implement \"$task\" (if new feature)"
+    echo ""
+    echo "2. /sc:test (validation)"
+    echo ""
+    echo "3. If spec exists: Update .specify/spec.md"
+}
+
+# Run hybrid workflow
+run_hybrid_workflow() {
+    local task="$1"
+
+    print_info "Starting hybrid workflow..."
+
+    # Light spec
+    if [ ! -d ".specify" ]; then
+        specify init
+    fi
+
+    echo "# Task: $task" >> .specify/spec.md
+    echo "Quick spec - $(date)" >> .specify/spec.md
+    echo "" >> .specify/spec.md
+
+    print_success "Light spec created"
+    print_info "Next steps in Claude Code:"
+    echo ""
+    echo "1. /sc:design --input .specify/spec.md"
+    echo "2. /sc:implement"
+    echo "3. /sc:test"
+}
+
+# Show manual commands
+show_manual_commands() {
+    echo -e "${BLUE}=== Manual Command Reference ===${NC}"
+    echo ""
+    echo "Spec-Kit Commands:"
+    echo "  specify init              # Initialize project"
+    echo "  specify check             # Check dependencies"
+    echo ""
+    echo "/sc:* Commands (use in Claude Code):"
+    echo "  /sc:brainstorm           # Requirements discovery"
+    echo "  /sc:design               # Architecture design"
+    echo "  /sc:implement            # Code implementation"
+    echo "  /sc:test                 # Testing"
+    echo "  /sc:analyze              # Code analysis"
+    echo "  /sc:troubleshoot         # Bug fixing"
+    echo "  /sc:improve              # Code improvement"
+    echo "  /sc:document             # Documentation"
+    echo ""
+    echo "Hybrid Workflow:"
+    echo "  1. specify init"
+    echo "  2. Edit .specify/spec.md"
+    echo "  3. /sc:brainstorm --input .specify/spec.md"
+    echo "  4. /sc:implement"
+    echo "  5. /sc:test"
+}
+
+# Quick mode
+quick_mode() {
+    local mode="$1"
+
+    case $mode in
+        init)
+            print_info "Initializing Spec-Kit..."
+            specify init
+            print_success "Done! Edit .specify/spec.md to get started"
+            ;;
+        check)
+            print_info "Checking Spec-Kit status..."
+            specify check
+            ;;
+        status)
+            local project_type=$(detect_project_type)
+            print_info "Project Type: $project_type"
+
+            if [ -d ".specify" ]; then
+                print_success "Spec-Kit initialized"
+                if [ -f ".specify/spec.md" ]; then
+                    local spec_lines=$(wc -l < .specify/spec.md)
+                    print_info "Spec file: $spec_lines lines"
+                fi
+            else
+                print_warning "Spec-Kit not initialized"
+            fi
+            ;;
+        *)
+            print_error "Unknown mode: $mode"
+            echo "Usage: spec-workflow {interactive|init|check|status}"
+            exit 1
+            ;;
+    esac
+}
+
+# Main
+main() {
+    if [ $# -eq 0 ]; then
+        interactive_mode
+    else
+        quick_mode "$1"
+    fi
+}
+
+main "$@"

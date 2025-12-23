@@ -1,0 +1,406 @@
+[
+  {
+    "name": "copilot-cli",
+    "optimal_for": [
+      "쉘 명령어",
+      "git 작업",
+      "GitHub CLI",
+      "DevOps",
+      "터미널 작업",
+      "자동화",
+      "CLI 도구"
+    ],
+    "benchmarks": {
+      "HumanEval": 94.0,
+      "CLI생성": 97.0,
+      "Git작업": 96.0,
+      "DevOps": 95.0,
+      "추론": 93.0,
+      "MMLU": 90.0
+    },
+    "vram_required": 0,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "cli",
+    "cli_command": "/home/leejc5147/.local/bin/github-copilot-cli",
+    "version": "github-copilot-cli 0.1.36",
+    "backend": "GitHub Copilot (Premium Tier)"
+  },
+  {
+    "name": "codex-cli",
+    "optimal_for": [
+      "코딩",
+      "디버깅",
+      "리팩토링",
+      "Python",
+      "JavaScript",
+      "알고리즘",
+      "복잡한 시스템 설계"
+    ],
+    "benchmarks": {
+      "HumanEval": 96.8,
+      "MBPP": 94.5,
+      "코딩속도": 98.0,
+      "GPT-5": 95.0,
+      "추론": 96.0,
+      "MMLU": 92.0
+    },
+    "vram_required": 0,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "cli",
+    "cli_command": "/home/leejc5147/.npm-global/bin/codex",
+    "version": "codex-cli 0.46.0",
+    "backend": "OpenAI GPT-5 (Premium Tier)"
+  },
+  {
+    "name": "gemini-cli",
+    "optimal_for": [
+      "빠른 응답",
+      "다국어",
+      "일반 작업",
+      "번역",
+      "요약",
+      "멀티모달",
+      "실시간 분석"
+    ],
+    "benchmarks": {
+      "MMLU": 92.5,
+      "다국어": 97.0,
+      "속도": 99.0,
+      "HumanEval": 90.5,
+      "추론": 91.0,
+      "멀티모달": 94.0
+    },
+    "vram_required": 0,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "cli",
+    "cli_command": "/home/leejc5147/.nvm/versions/node/v20.19.5/bin/gemini",
+    "version": "0.9.0",
+    "backend": "Google Gemini (Premium Tier, Auto-Update)"
+  },
+  {
+    "name": "codellama:70b",
+    "optimal_for": [
+      "코딩",
+      "디버깅",
+      "리팩토링",
+      "Python",
+      "JavaScript"
+    ],
+    "benchmarks": {
+      "MMLU": 82.0,
+      "창의성": 88.0,
+      "HumanEval": 70.0
+    },
+    "vram_required": 80,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "glm-4.6:cloud",
+    "optimal_for": [
+      "일반 작업"
+    ],
+    "benchmarks": {},
+    "vram_required": 16,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "qwen3-vl:235b-cloud",
+    "optimal_for": [
+      "비전",
+      "이미지 분석",
+      "멀티모달",
+      "OCR",
+      "시각 추론"
+    ],
+    "benchmarks": {
+      "MMLU": 88.5,
+      "비전": 96.0,
+      "멀티모달": 94.0,
+      "OCR": 92.0
+    },
+    "vram_required": 144,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "llama3:8b",
+    "optimal_for": [
+      "일반 작업",
+      "창의적 글쓰기",
+      "대화"
+    ],
+    "benchmarks": {
+      "MMLU": 82.0,
+      "창의성": 88.0,
+      "HumanEval": 70.0
+    },
+    "vram_required": 16,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "gpt-oss:120b",
+    "optimal_for": [
+      "범용",
+      "추론",
+      "창의적 글쓰기",
+      "대화",
+      "분석"
+    ],
+    "benchmarks": {
+      "HumanEval": 89.5,
+      "MMLU": 90.0,
+      "GSM8K": 92.0,
+      "창의성": 91.0,
+      "추론": 89.0
+    },
+    "vram_required": 80,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "exaone4.0:32b",
+    "optimal_for": [
+      "한국어",
+      "다국어",
+      "범용",
+      "추론"
+    ],
+    "benchmarks": {
+      "MMLU": 84.0,
+      "한국어": 95.0,
+      "HumanEval": 80.0,
+      "GSM8K": 86.0
+    },
+    "vram_required": 48,
+    "priority": 9,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "deepseek-r1:70b",
+    "optimal_for": [
+      "코딩",
+      "수학",
+      "추론",
+      "알고리즘",
+      "시스템 설계"
+    ],
+    "benchmarks": {
+      "HumanEval": 89.0,
+      "MMLU": 84.0,
+      "GSM8K": 91.0
+    },
+    "vram_required": 80,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "llama3:70b",
+    "optimal_for": [
+      "일반 작업",
+      "창의적 글쓰기",
+      "대화"
+    ],
+    "benchmarks": {
+      "MMLU": 82.0,
+      "창의성": 88.0,
+      "HumanEval": 70.0
+    },
+    "vram_required": 80,
+    "priority": 8,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "qwen3:32b",
+    "optimal_for": [
+      "다국어",
+      "수학",
+      "코딩",
+      "중국어"
+    ],
+    "benchmarks": {
+      "HumanEval": 85.0,
+      "MMLU": 86.0,
+      "다국어": 92.0,
+      "GSM8K": 88.0
+    },
+    "vram_required": 48,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "deepseek-r1:32b",
+    "optimal_for": [
+      "코딩",
+      "수학",
+      "추론",
+      "알고리즘",
+      "시스템 설계"
+    ],
+    "benchmarks": {
+      "HumanEval": 89.0,
+      "MMLU": 84.0,
+      "GSM8K": 91.0
+    },
+    "vram_required": 48,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "magistral:24b",
+    "optimal_for": [
+      "일반 작업"
+    ],
+    "benchmarks": {},
+    "vram_required": 16,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "gpt-oss:20b",
+    "optimal_for": [
+      "범용",
+      "추론",
+      "창의적 글쓰기",
+      "대화",
+      "분석"
+    ],
+    "benchmarks": {
+      "HumanEval": 89.5,
+      "MMLU": 90.0,
+      "GSM8K": 92.0,
+      "창의성": 91.0,
+      "추론": 89.0
+    },
+    "vram_required": 16,
+    "priority": 5,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "kimi-k2:1t-cloud",
+    "optimal_for": [
+      "장문 처리",
+      "복잡한 추론",
+      "멀티스텝 작업",
+      "대규모 컨텍스트"
+    ],
+    "benchmarks": {
+      "MMLU": 92.0,
+      "추론": 94.0,
+      "장문처리": 98.0,
+      "GSM8K": 93.5,
+      "HumanEval": 88.0
+    },
+    "vram_required": 512,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "qwen3-coder:480b-cloud",
+    "optimal_for": [
+      "코딩",
+      "디버깅",
+      "리팩토링",
+      "Python",
+      "JavaScript"
+    ],
+    "benchmarks": {
+      "HumanEval": 93.5,
+      "MBPP": 91.0,
+      "MMLU": 87.0,
+      "GSM8K": 89.0,
+      "코딩속도": 95.0
+    },
+    "vram_required": 288,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "deepseek-v3.1:671b-cloud",
+    "optimal_for": [
+      "코딩",
+      "수학",
+      "추론",
+      "알고리즘",
+      "시스템 설계"
+    ],
+    "benchmarks": {
+      "HumanEval": 96.3,
+      "MMLU": 91.5,
+      "GSM8K": 94.8,
+      "MBPP": 92.5,
+      "추론": 93.0
+    },
+    "vram_required": 384,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "gpt-oss:120b-cloud",
+    "optimal_for": [
+      "범용",
+      "추론",
+      "창의적 글쓰기",
+      "대화",
+      "분석"
+    ],
+    "benchmarks": {
+      "HumanEval": 89.5,
+      "MMLU": 90.0,
+      "GSM8K": 92.0,
+      "창의성": 91.0,
+      "추론": 89.0
+    },
+    "vram_required": 80,
+    "priority": 9,
+    "enabled": true,
+    "model_type": "ollama"
+  },
+  {
+    "name": "kimi-k2-thinking:cloud",
+    "optimal_for": [
+      "에이전트 작업",
+      "도구 오케스트레이션",
+      "복잡한 워크플로우",
+      "코드 리뷰",
+      "버그 수정",
+      "대규모 코딩",
+      "멀티스텝 추론",
+      "자동화"
+    ],
+    "benchmarks": {
+      "SWE-bench": 69.0,
+      "대규모코딩": 93.0,
+      "MMLU-Pro": 81.1,
+      "도구호출": 98.0,
+      "HumanEval": 88.5,
+      "에이전트작업": 97.0,
+      "추론": 92.0
+    },
+    "vram_required": 192,
+    "priority": 10,
+    "enabled": true,
+    "model_type": "ollama",
+    "notes": "1T parameters, 32B activated. Excels at agentic tasks with 200-300 consecutive tool invocations. Best for complex workflows."
+  }
+]

@@ -1,0 +1,34 @@
+Multi-AI Orchestrator Skill
+Version: 1.0.0
+Release Date: 2025-10-24
+Installation Date: 2025-10-24
+
+Status: ✅ Active
+Location: ~/.claude/skills/multi-ai-orchestrator/
+
+System Requirements:
+- Ollama: ✅ Installed
+- Python: ✅ 3.10.19
+- Models: ✅ 16 detected
+
+Core Features:
+- Auto Profiling: ✅
+- Smart Routing: ✅
+- Parallel Ensemble: ✅
+
+Documentation:
+- INDEX.md       - 문서 인덱스 (시작점)
+- QUICKREF.md    - 빠른 참조 가이드
+- EXAMPLES.md    - 실전 사용 예제
+- SKILL.md       - 전체 문서 (상세)
+- USAGE.md       - 사용 가이드
+- QUICK_START.md - 빠른 시작
+- README.md      - 프로젝트 개요
+
+Quick Start:
+1. cd ~/.claude/skills/multi-ai-orchestrator
+2. python3 auto_model_profiler.py
+3. Use in Claude Code: "내 Ollama 모델 프로파일링해줘"
+
+Support: See SKILL.md → Troubleshooting
+License: MIT

@@ -1,0 +1,17 @@
+{
+  "name": "multi-ai-orchestrator",
+  "version": "1.0.0",
+  "description": "Ollama 기반 다중 AI 모델 자동 프로파일링, 스마트 라우팅, 병렬 앙상블 실행 스킬",
+  "author": "Multi-AI Community",
+  "tags": ["ollama", "multi-model", "orchestrator", "ensemble", "routing"],
+  "main": "SKILL.md",
+  "scripts": {
+    "profiler": "python3 auto_model_profiler.py",
+    "router": "python3 smart_router.py",
+    "ensemble": "python3 ensemble_executor.py"
+  },
+  "requirements": {
+    "ollama": ">=0.1.0",
+    "python": ">=3.8"
+  }
+}

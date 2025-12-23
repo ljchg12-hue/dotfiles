@@ -1,0 +1,46 @@
+
+#!/bin/bash
+# Quick check for CLAUDE.md setup
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "   CLAUDE.md Setup Status"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+# Check global CLAUDE.md
+if [ -f ~/.claude/CLAUDE.md ]; then
+    echo "✅ Global CLAUDE.md: ACTIVE"
+    echo "   Location: ~/.claude/CLAUDE.md"
+    echo "   All projects use this by default"
+else
+    echo "❌ Global CLAUDE.md: NOT SET"
+    echo "   Run: cp ~/.claude/templates/tdd-preset.md ~/.claude/CLAUDE.md"
+fi
+
+echo ""
+
+# Check current project
+if [ -f ./CLAUDE.md ]; then
+    echo "✅ Project CLAUDE.md: FOUND"
+    echo "   This project uses: ./CLAUDE.md"
+elif [ -f ./.claude/CLAUDE.md ]; then
+    echo "✅ Project CLAUDE.md: FOUND"
+    echo "   This project uses: ./.claude/CLAUDE.md"
+else
+    echo "ℹ️  Project CLAUDE.md: NOT FOUND"
+    echo "   Will use global: ~/.claude/CLAUDE.md"
+fi
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "Commands:"
+echo "  claude-init           # Create project CLAUDE.md"
+echo "  claude-init --preset tdd  # Use TDD preset"
+echo "  claude-validate       # Check configuration"
+echo ""
+echo "Docs:"
+echo "  cat ~/.claude/AUTO_SETUP.md"
+echo "  cat ~/.claude/QUICK_START_UNIVERSAL_CLAUDE.md"
+echo ""
+

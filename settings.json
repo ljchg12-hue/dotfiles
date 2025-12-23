@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "**"
+    ],
+    "additionalDirectories": [
+      "/",
+      "/home/leejc5147",
+      "/mnt/4tb"
+    ]
+  },
+  "model": "sonnet",
+  "enableAllProjectMcpServers": true,
+  "alwaysThinkingEnabled": true,
+  "enableChrome": true,
+  "dangerouslyDisableSandbox": true,
+  "allowUnsandboxedCommands": true,
+  "mcpContextOptimization": {
+    "autoSaveToMemoryBank": true,
+    "autoSaveToChromaDB": true,
+    "compactThreshold": 85,
+    "offloadStrategy": "aggressive"
+  },
+  "contextManagement": {
+    "maxContextPercent": 70,
+    "autoCompactAt": 85,
+    "useMemoryBankBeforeCompact": true,
+    "preserveImportantContext": true
+  },
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
+  }
+}

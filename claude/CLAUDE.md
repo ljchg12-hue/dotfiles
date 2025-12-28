@@ -82,6 +82,7 @@ validate-parallel.py Read Edit  # 2개
 ```
 최소 구성:
   - Cloud CLI: 4개 (Claude, Gemini, Codex, Copilot - 항상 병렬)
+  - Code-Tier S급: 3개 (코드 작업 시 필수 - glm-4.6, qwen3-coder, codellama)
   - Ollama Cloud: 4개 (S-Tier 우선)
   - Ollama Local: 2개 (작업별 선택)
   - MCP: 1-2개 (관련 도구)
@@ -97,10 +98,10 @@ validate-parallel.py Read Edit  # 2개
 
 **예시**:
 ```bash
-# 코드 검증 (총 10개 AI)
+# 코드 검증 (총 11개 AI) - Code-Tier S급 3개 자동 포함!
 echo "코드 검증 요청" > /tmp/prompt.txt
 multi-source-verify.sh code /tmp/prompt.txt
-→ Cloud CLI 4개 + Ollama Cloud 4개 + Ollama Local 2개 자동 실행
+→ Cloud CLI 4 + Code-Tier 3 + Ollama Cloud 2 + Local 2 자동 실행
 
 # 설계 검증 (총 12개 AI)
 multi-source-verify.sh design /tmp/prompt.txt
@@ -279,10 +280,13 @@ multi-source-verify.sh design /tmp/prompt.txt
 
 ## AI CLI
 - **Cloud 4개**: Claude, Gemini, Codex, Copilot (항상 병렬)
+- **⭐ Code-Tier S급 (코딩 작업 최우선 - 3개)**: glm-4.6:cloud, qwen3-coder:480b-cloud, codellama:70b
+  - 코딩/디버깅/분석/수정/개발 작업 시 Cloud CLI 4개와 함께 **필수 포함**
+  - Temperature: 0.3 (코드 정확도 우선)
 - **Ollama Cloud S-Tier (4개)**: mistral-large-3:675b-cloud, kimi-k2:1t-cloud, deepseek-v3.1:671b-cloud, cogito-2.1:671b-cloud
-- **Ollama Cloud A-Tier (5개)**: qwen3-coder:480b-cloud, qwen3-vl:235b-cloud, gpt-oss:120b-cloud, kimi-k2-thinking:cloud, nemotron-3-nano:30b-cloud
-- **Ollama Cloud B-Tier (4개)**: gemini-3-pro-preview, glm-4.6:cloud, minimax-m2:cloud, ministral-3:14b-cloud
-- **Ollama Local 70B+ (8개)**: llama3.3, codellama:70b, deepseek-r1:70b, exaone4.0:32b, llama3.1:70b, llama3:70b, gpt-oss:120b, gpt-oss-safeguard:120b
+- **Ollama Cloud A-Tier (4개)**: qwen3-vl:235b-cloud, gpt-oss:120b-cloud, kimi-k2-thinking:cloud, nemotron-3-nano:30b-cloud
+- **Ollama Cloud B-Tier (3개)**: gemini-3-pro-preview, minimax-m2:cloud, ministral-3:14b-cloud
+- **Ollama Local 70B+ (7개)**: llama3.3, deepseek-r1:70b, exaone4.0:32b, llama3.1:70b, llama3:70b, gpt-oss:120b, gpt-oss-safeguard:120b
 - **Ollama Local 32B (2개)**: deepseek-r1:32b, qwen3:32b
 - **병렬제한**: AI 16개, MCP 7개
 - **Temp**: Claude=0, others=0.3

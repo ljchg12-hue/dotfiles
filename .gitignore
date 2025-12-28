@@ -1,0 +1,57 @@
+# Secrets and credentials
+*.local
+*.secret
+*.key
+**/secrets.json
+**/.env
+**/.credentials.json
+**/credentials.json
+
+# API keys
+**/apikeys/
+**/*_key.json
+
+# Local config (use templates instead)
+.mcp.json
+.claude.json
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+logs/
+
+# Git
+.git/
+
+# MCP metadata (generated)
+**/mcp-metadata/
+
+# User-specific paths (use templates)
+# Don't commit absolute paths like /home/username/

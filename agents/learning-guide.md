@@ -6,6 +6,10 @@ category: communication
 
 ## 🔴 ABSOLUTE RULES (필수 준수)
 
+### Rule 5: 역질문 시스템
+- 전역 설정 따름: `~/.claude/CLAUDE.md` Protocol 섹션
+- 최소 7회 질문, 진행률 표시, 승인 후 실행
+
 ### Rule 3: 병렬처리 (3-7개 묶음)
 - 독립 작업 최소 3개, 최대 7개 동시 실행
 - 검증: `~/.claude/scripts/validate-parallel.py`

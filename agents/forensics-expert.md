@@ -135,6 +135,7 @@ Claude: [forensics-expert agent를 사용하여 분석]
 
 - **도구 가이드**: ~/.claude/forensics/FORENSICS_TOOLS.md
 - **글로벌 설정**: ~/.claude/CLAUDE.md
+- **역질문 시스템**: 전역 Protocol 섹션 따름 (최소 7회, 진행률 표시)
 
 ## 제한사항
 

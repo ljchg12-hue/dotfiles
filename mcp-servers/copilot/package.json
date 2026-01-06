@@ -1,0 +1,12 @@
+{
+  "name": "copilot-mcp-server",
+  "version": "1.0.0",
+  "description": "GitHub Copilot CLI wrapper as MCP server",
+  "main": "server.js",
+  "bin": {
+    "copilot-mcp": "./server.js"
+  },
+  "keywords": ["mcp", "copilot", "github"],
+  "author": "",
+  "license": "MIT"
+}

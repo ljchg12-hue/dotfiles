@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "MCP_DOCKER": {
+      "type": "sse",
+      "url": "http://localhost:8811/sse"
+    },
+    "github": {
+      "command": "/home/leejc5147/.nvm/versions/node/v24.11.0/bin/npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "command": "/home/leejc5147/.nvm/versions/node/v24.11.0/bin/npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/leejc5147", "/mnt/4tb"],
+      "env": {}
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"],
+      "env": {}
+    },
+    "basic-memory": {
+      "command": "uvx",
+      "args": ["basic-memory", "mcp"],
+      "env": {}
+    },
+    "ollama": {
+      "command": "/home/leejc5147/.nvm/versions/node/v24.11.0/bin/node",
+      "args": ["/home/leejc5147/.nvm/versions/node/v24.11.0/lib/node_modules/ollama-mcp-server/build/index.js"],
+      "env": {"OLLAMA_HOST": "http://localhost:11434"}
+    },
+    "copilot": {
+      "command": "node",
+      "args": ["/home/leejc5147/.claude/mcp-servers/copilot/server.js"],
+      "env": {}
+    },
+    "tty": {
+      "command": "node",
+      "args": ["/home/leejc5147/tty-mcp-server/build/index.js"],
+      "env": {}
+    },
+    "codebuff": {
+      "command": "node",
+      "args": ["/home/leejc5147/codebuff-mcp-server/build/index.js"],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "MCP_DOCKER": {
+      "type": "sse",
+      "url": "http://localhost:8811/sse"
+    },
+    "github": {
+      "command": "/home/leejc5147/.nvm/versions/node/v24.11.0/bin/npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "command": "/home/leejc5147/.nvm/versions/node/v24.11.0/bin/npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/leejc5147", "/mnt/4tb"],
+      "env": {}
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"],
+      "env": {}
+    },
+    "basic-memory": {
+      "command": "uvx",
+      "args": ["basic-memory", "mcp"],
+      "env": {}
+    }
+  }
+}

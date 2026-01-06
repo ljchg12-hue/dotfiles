@@ -7,9 +7,16 @@
 # 민감 정보 (Sensitive Data)
 # ============================================
 .credentials.json
+credentials.json
+secrets.json
 *.key
 *.pem
 *.token
+*.secret
+*.local
+.env
+**/apikeys/
+**/*_key.json
 
 # ============================================
 # 로컬 설정 (Local Settings)
@@ -17,12 +24,17 @@
 settings.local.json
 settings.local.json.backup*
 *.local.*
+.mcp.json
+.claude.json
 
 # ============================================
 # 백업 파일 (Backups)
 # ============================================
 *.backup
 *.backup.*
+*.bak
+*.tmp
+*~
 CLAUDE.md.backup.*
 CLAUDE.md.v*
 FLAGS.md.backup.*
@@ -48,6 +60,7 @@ stats-cache.json
 .superclaude-metadata.json
 .update_check
 stats-cache.json
+**/mcp-metadata/
 
 # ============================================
 # 임시 & 디버그 (Temporary & Debug)
@@ -69,6 +82,36 @@ plans/
 # Chrome 관련 (Chrome-specific)
 # ============================================
 chrome/
+
+# ============================================
+# OS 파일 (OS Files)
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# IDE (IDE Files)
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# ============================================
+# Node
+# ============================================
+node_modules/
+package-lock.json
+yarn.lock
 
 # ============================================
 # 생성된 파일 (Generated Files)

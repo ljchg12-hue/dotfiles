@@ -2,24 +2,24 @@
 **작성일**: 2025-11-13 22:40 KST
 **최종 업데이트**: 2025-12-04 KST
 **검증 방법**: 실제 테스트 (`/tmp/test-all-4-ai-cli.sh`)
-**상태**: ✅ Cloud CLI 4개 + Ollama Cloud 12개 + 로컬 7개 = 총 23개 AI 모델
+**상태**: ✅ Cloud CLI 5개 + Ollama Cloud 11개 + 로컬 7개 = 총 23개 AI 모델
 
 ---
 
 ## 📋 빠른 참조 (Quick Reference)
 
-### 🔴 필수 규칙 (절대 잊지 말 것 - 2025-12-29 업데이트)
+### 🔴 필수 규칙 (절대 잊지 말 것 - 2026-01-12 업데이트)
 ```
 ✅ DO (반드시 할 것):
-1. Cloud CLI 4개 항상 병렬 (Claude, Gemini, Codex, Copilot)
-2. ⭐ 코드 작업 시 Code-Tier S급 3개 필수 (glm-4.6, qwen3-coder, codellama)
-3. Ollama Cloud 4~8개 상황별 선택 (총 12개 중)
+1. Cloud CLI 5개 항상 병렬 (Claude, Gemini, Codex, Copilot, GLM)
+2. ⭐ 코드 작업 시 Code-Tier S급 3개 필수 (qwen3-coder, codellama, nemotron)
+3. Ollama Cloud 4~8개 상황별 선택 (총 11개 중)
 4. 로컬 2~4개 작업별 선택 (한국어: Exaone 필수)
 5. Temperature: Claude = 0, 나머지 = 0.3
 6. S-Tier 우선: mistral-large-3:675b > kimi-k2:1t > deepseek-v3.1:671b
 
 ❌ DON'T (절대 금지):
-1. Cloud CLI 4개 중 일부만 사용
+1. Cloud CLI 5개 중 일부만 사용
 2. 코딩/디버깅 작업에서 Code-Tier S급 빠뜨림 ⭐신규
 3. 70B+ 모델 있는데 7B/8B/13B 사용 (ministral-3:14b 예외)
 4. AI 단독 판단 (항상 교차 검증)
@@ -27,25 +27,26 @@
 6. Temperature 미지정
 ```
 
-### 📊 AI 모델 구성 (2025-12-29 업데이트)
+### 📊 AI 모델 구성 (2026-01-12 업데이트)
 ```
 ┌─────────────────────────────────────────┐
-│ Cloud CLI 4개 (항상 병렬 - 필수)         │
+│ Cloud CLI 5개 (항상 병렬 - 필수)         │
 ├─────────────────────────────────────────┤
 │ 1. Claude Code CLI (현재 세션)           │
 │ 2. Gemini 2.5 Pro                       │
 │ 3. GPT-5.1 Codex                        │
 │ 4. GitHub Copilot CLI                   │
+│ 5. GLM-4.7 (via cli-cih, api.z.ai)      │
 └─────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────┐
 │ ⭐ Code-Tier S급 3개 (코드 작업 필수)    │
 ├─────────────────────────────────────────┤
-│ 5. glm-4.6:cloud (코드+디버깅 최우선)    │
 │ 6. qwen3-coder:480b-cloud (코드 특화)   │
 │ 7. codellama:70b (로컬 코드 전문)        │
+│ 8. nemotron-3-nano:30b-cloud (NVIDIA)   │
 │ ※ 코딩/디버깅/분석/수정/개발 작업 시    │
-│   Cloud CLI 4개와 함께 자동 포함          │
+│   Cloud CLI 5개와 함께 자동 포함          │
 └─────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────┐
@@ -77,7 +78,7 @@
 │ 23. gpt-oss:120b (로컬)                 │
 └─────────────────────────────────────────┘
 
-총 구성: Cloud CLI 4 + Code-Tier 3 + Ollama Cloud 4~8 + 로컬 2~4 = 13~19개
+총 구성: Cloud CLI 5 + Code-Tier 3 + Ollama Cloud 4~8 + 로컬 2~4 = 14~20개
 ```
 
 ### ⚡ 1분 빠른 시작 (2025-12-04 업데이트)
@@ -85,10 +86,11 @@
 # 1. 프롬프트 작성
 echo "[Temperature: 0.3] 코드 검증 요청" > /tmp/prompt.txt
 
-# 2. Cloud CLI 4개 (항상 병렬)
+# 2. Cloud CLI 5개 (항상 병렬)
 gemini "$(cat /tmp/prompt.txt)" > /tmp/gemini.txt 2>&1 &
 codex exec "$(cat /tmp/prompt.txt)" > /tmp/codex.txt 2>&1 &
 copilot -p "$(cat /tmp/prompt.txt)" --allow-all-tools > /tmp/copilot.txt 2>&1 &
+glm -p "$(cat /tmp/prompt.txt)" > /tmp/glm.txt 2>&1 &
 
 # 3. Ollama Cloud S-Tier 4개 (최고품질)
 ollama run mistral-large-3:675b-cloud "$(cat /tmp/prompt.txt)" > /tmp/mistral675b.txt 2>&1 &
@@ -283,10 +285,11 @@ cat > /tmp/validation_prompt.txt << 'EOF'
 ...
 EOF
 
-# 🔴 Cloud CLI 4개 (항상 병렬)
+# 🔴 Cloud CLI 5개 (항상 병렬)
 gemini "$(cat /tmp/validation_prompt.txt)" > /tmp/gemini.txt 2>&1 &
 codex exec "$(cat /tmp/validation_prompt.txt)" > /tmp/codex.txt 2>&1 &
 copilot -p "$(cat /tmp/validation_prompt.txt)" --allow-all-tools > /tmp/copilot.txt 2>&1 &
+glm -p "$(cat /tmp/validation_prompt.txt)" > /tmp/glm.txt 2>&1 &
 
 # 🔴 Ollama Cloud 4~8개 (상황별 S-Tier 우선)
 # 코드 작업 예시 (S-Tier 4개)
@@ -425,7 +428,7 @@ which gemini codex copilot ollama
 **주요 변경사항**:
 - **Gemini 업그레이드**: 2.5 Pro → **3.0 Pro** (gemini-3-pro-preview, gemini-2.5-pro)
 - **Codex 업그레이드**: gpt-5.1-codex → **gpt-5.1-codex-max medium**
-- **클라우드 8개 (고정)**: Cloud CLI 4개 (업그레이드됨) + Ollama Cloud 4개 (항상 병렬)
+- **클라우드 9개 (고정)**: Cloud CLI 5개 (GLM 추가) + Ollama Cloud 4개 (항상 병렬)
 - **로컬 2~6개 (가변)**: 작업 유형별 선택 (한국어, 코드, 복합)
 - **실행 전략**: 옵션 2 (필요 모델 선택) + 옵션 3 (VRAM 분배) + 옵션 1 (그룹 시간차)
 - **Temperature**: Claude = 0 (추론 금지), 나머지 = 0.3 (추론 허용)

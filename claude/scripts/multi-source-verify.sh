@@ -46,8 +46,8 @@ case "$TASK_TYPE" in
     echo "📊 코드 검증 시작 (멀티소스)"
     echo ""
 
-    # Phase 1: Cloud CLI 4개 (항상 병렬)
-    echo "📡 Phase 1: Cloud CLI 4개 병렬 실행..."
+    # Phase 1: Cloud CLI 5개 (항상 병렬)
+    echo "📡 Phase 1: Cloud CLI 5개 병렬 실행..."
 
     gemini "$PROMPT" > "$RESULT_DIR/gemini.txt" 2>&1 &
     PID_GEMINI=$!
@@ -58,9 +58,13 @@ case "$TASK_TYPE" in
     copilot -p "$PROMPT" --allow-all-tools > "$RESULT_DIR/copilot.txt" 2>&1 &
     PID_COPILOT=$!
 
+    glm -p "$PROMPT" > "$RESULT_DIR/glm.txt" 2>&1 &
+    PID_GLM=$!
+
     echo "  - Gemini (PID: $PID_GEMINI)"
     echo "  - Codex (PID: $PID_CODEX)"
     echo "  - Copilot (PID: $PID_COPILOT)"
+    echo "  - GLM (PID: $PID_GLM)"
     echo "  - Claude (현재 세션)"
 
     # Phase 2: Ollama Cloud S-Tier 4개

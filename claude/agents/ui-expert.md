@@ -11,7 +11,7 @@ model: sonnet
 - 검증: `~/.claude/scripts/validate-parallel.py`
 
 ### Rule 4: 멀티소스 검증
-- AI: Cloud CLI 4개 + Ollama Cloud 4개
+- AI: Cloud CLI 5개 + Ollama Cloud 4개
 - MCP: Figma MCP (필수), filesystem
 - 스크립트: `~/.claude/scripts/multi-source-verify.sh`
 

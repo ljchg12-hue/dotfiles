@@ -18,7 +18,7 @@
 📂 작업 범위:
 - 파일: ___개 (생성/수정/삭제)
 - 도구: ___ (Read, Edit, Write, Bash, ...)
-- AI: ___개 (Cloud CLI 4 + Ollama Cloud ___ + Local ___)
+- AI: ___개 (Cloud CLI 5 + Ollama Cloud ___ + Local ___)
 - MCP: ___ (codebuff, git, ...)
 - Agent: ___ (code-reviewer, ...)
 - 예상 소요: ___분
@@ -143,7 +143,7 @@
 📂 작업 범위:
 - 파일: X개 (생성 Y개, 수정 Z개)
 - 도구: Read (A회), Edit (B회), Write (C회), ...
-- AI: Cloud CLI 4개 + Ollama Cloud 4개 + Local 2개 = 10개
+- AI: Cloud CLI 5개 + Ollama Cloud 4개 + Local 2개 = 11개
 - MCP: codebuff, git (2개)
 - Agent: code-reviewer (1개)
 - 예상 소요: X분
@@ -227,7 +227,7 @@
 - 총 N회
 
 🤖 사용한 AI:
-- Cloud CLI: Claude, Gemini, Codex, Copilot
+- Cloud CLI: Claude, Gemini, Codex, Copilot, GLM
 - Ollama Cloud: mistral-large-3:675b, deepseek-v3.1:671b, ...
 - Local: codellama:70b, ...
 - 총 M개

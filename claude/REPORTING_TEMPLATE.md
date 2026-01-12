@@ -25,11 +25,12 @@
 - **총 N회 호출**
 
 🤖 사용한 AI:
-- **Cloud CLI (4개)**:
+- **Cloud CLI (5개)**:
   - Claude Code (현재 세션) - [역할]
   - Gemini 2.5 Pro - [역할]
   - GPT-5.1 Codex - [역할]
   - GitHub Copilot - [역할]
+  - GLM-4.7 (api.z.ai) - [역할]
 - **Ollama Cloud (X개)**:
   - mistral-large-3:675b - [역할]
   - deepseek-v3.1:671b - [역할]
@@ -96,7 +97,7 @@ Python 코드 리팩토링 및 타입 힌트 추가, mypy 검증 통과
 - **총 13회 호출**
 
 🤖 사용한 AI:
-- **Cloud CLI (4개)**:
+- **Cloud CLI (5개)**:
   - Claude Code (현재 세션) - 전체 조율 및 코드 작성
   - Gemini 2.5 Pro - 타입 힌트 검증
   - GPT-5.1 Codex - 리팩토링 제안
@@ -152,7 +153,7 @@ API 문서 작성 및 다국어 검증 (한국어/영어)
 - **총 7회 호출**
 
 🤖 사용한 AI:
-- **Cloud CLI (4개)**:
+- **Cloud CLI (5개)**:
   - Claude Code (현재 세션) - 문서 작성 조율
   - Gemini 2.5 Pro - 영어 문법 검증
   - GPT-5.1 Codex - API 설명 생성
@@ -204,7 +205,7 @@ CLAUDE.md 설정 파일 업데이트 및 검증
 - **총 6회 호출**
 
 🤖 사용한 AI:
-- **Cloud CLI (4개)**:
+- **Cloud CLI (5개)**:
   - Claude Code (현재 세션) - 설정 분석 및 수정
   - Gemini 2.5 Pro - 문법 검증
   - GPT-5.1 Codex - 최적화 제안

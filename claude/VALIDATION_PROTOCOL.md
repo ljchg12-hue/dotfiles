@@ -11,7 +11,7 @@
 멀티소스 교차 검증 ✅
 
 최소 구성:
-- AI: 4개 이상 (Cloud CLI 전부)
+- AI: 5개 이상 (Cloud CLI 전부)
 - MCP: 1-2개 (관련 도구)
 - Agent: 1개 (전문가)
 - Skill: 자동 활성화
@@ -32,11 +32,12 @@
 #### 필수 소스
 ```
 🤖 AI (8-10개):
-  Cloud CLI (4개 - 필수):
+  Cloud CLI (5개 - 필수):
     - Claude Code (현재 세션)
     - Gemini 2.5 Pro
     - GPT-5.1 Codex
     - GitHub Copilot
+    - GLM-4.7 (via cli-cih)
 
   Ollama Cloud (4-6개 - S-Tier 우선):
     - mistral-large-3:675b (다국어 코드)
@@ -62,7 +63,7 @@
 ```
 
 #### 검증 절차
-1. **Phase 1**: Cloud CLI 4개 병렬 실행
+1. **Phase 1**: Cloud CLI 5개 병렬 실행
 2. **Phase 2**: Ollama Cloud S-Tier 4개 병렬
 3. **Phase 3**: Local 모델 2-4개 병렬
 4. **Phase 4**: MCP 도구로 분석
@@ -100,7 +101,7 @@
 ```
 
 #### 검증 절차
-1. Cloud CLI 4개로 초안 설계
+1. Cloud CLI 5개로 초안 설계
 2. Ollama Cloud 추론 모델로 검증
 3. Agent로 전문가 리뷰
 4. 불일치 시 토론 진행
@@ -145,11 +146,12 @@
 #### 필수 소스
 ```
 🤖 AI (6-8개):
-  Cloud CLI (4개):
+  Cloud CLI (5개):
     - Claude Code
     - Gemini 2.5 Pro
     - GPT-5.1 Codex
     - GitHub Copilot
+    - GLM-4.7 (via cli-cih)
 
   Ollama Cloud (4개):
     - deepseek-v3.1:671b (디버깅)
@@ -182,11 +184,12 @@
 #### 필수 소스
 ```
 🤖 AI (6-8개):
-  Cloud CLI (4개):
+  Cloud CLI (5개):
     - Claude Code
     - Gemini 2.5 Pro
     - GPT-5.1 Codex
     - GitHub Copilot
+    - GLM-4.7 (via cli-cih)
 
   Ollama Cloud (4개):
     - qwen3-coder:480b (코드 최적화)
@@ -224,14 +227,14 @@
    └─> 코드/설계/문서/버그/성능
 
 2. 필수 소스 확인
-   ├─> AI: Cloud CLI 4개 (필수)
+   ├─> AI: Cloud CLI 5개 (필수)
    ├─> AI: Ollama Cloud 4-6개 (작업별)
    ├─> AI: Local 2-4개 (필요시)
    ├─> MCP: 1-2개 (관련 도구)
    └─> Agent: 1개 (전문가)
 
 3. 병렬 실행 (ABSOLUTE RULES #3)
-   ├─> 묶음 1: Cloud CLI 4개
+   ├─> 묶음 1: Cloud CLI 5개
    ├─> 묶음 2: Ollama Cloud 4-6개
    ├─> 묶음 3: Local + MCP (5-7개)
    └─> 묶음 4: Agent (1개)
@@ -277,7 +280,7 @@ echo "코드 검증 요청" > /tmp/prompt.txt
 ```
 
 **기능**:
-- Cloud CLI 4개 자동 병렬 실행
+- Cloud CLI 5개 자동 병렬 실행
 - Ollama Cloud 작업별 모델 선택
 - Local 모델 상황별 호출
 - MCP 도구 자동 실행 (선택)
@@ -288,8 +291,8 @@ echo "코드 검증 요청" > /tmp/prompt.txt
 ## ⚠️ 주의사항
 
 ### 금지 사항
-1. ❌ Cloud CLI 중 일부만 사용 (4개 전부 필수)
-2. ❌ AI 단독 결정 (최소 4개 교차 검증)
+1. ❌ Cloud CLI 중 일부만 사용 (5개 전부 필수)
+2. ❌ AI 단독 결정 (최소 5개 교차 검증)
 3. ❌ MCP 없이 코드 작업
 4. ❌ Agent 없이 전문 작업
 5. ❌ 검증 없이 바로 적용
@@ -297,9 +300,9 @@ echo "코드 검증 요청" > /tmp/prompt.txt
 ### 예외 상황
 - **읽기 전용 작업**: 멀티소스 불필요
   - 예: 파일 읽기, 내용 검색
-- **단순 작업**: AI 4개만으로 충분
+- **단순 작업**: AI 5개만으로 충분
   - 예: 파일 이름 변경, 주석 추가
-- **긴급 상황**: 최소 Cloud CLI 4개는 필수
+- **긴급 상황**: 최소 Cloud CLI 5개는 필수
   - 나머지 선택적
 
 ---
@@ -312,7 +315,7 @@ echo "코드 검증 요청" > /tmp/prompt.txt
 - [ ] 병렬처리 계획 수립 (3-7개 묶음)
 
 작업 중:
-- [ ] Cloud CLI 4개 병렬 실행
+- [ ] Cloud CLI 5개 병렬 실행
 - [ ] Ollama Cloud 4-6개 병렬 실행
 - [ ] MCP 관련 도구 1-2개 사용
 - [ ] Agent 전문가 1개 호출
@@ -333,7 +336,7 @@ echo "코드 검증 요청" > /tmp/prompt.txt
 - Agent 승인: 필수
 
 ### 소스 사용률
-- Cloud CLI: 100% (4개 전부)
+- Cloud CLI: 100% (5개 전부)
 - Ollama Cloud: 작업별 50-100%
 - MCP: 코드 작업 시 100%
 - Agent: 전문 작업 시 100%

@@ -1,5 +1,5 @@
-# Claude Code Global v3.3
-<!-- Updated: 2026-01-12 | 워크플로우 순서 재정렬 + AI CLI 실행 메커니즘 추가 -->
+# Claude Code Global v3.4
+<!-- Updated: 2026-01-13 | 다층 판단 시스템 (Layer 1~4) 동기화 -->
 
 ## MCP (Single Source)
 - **~/.mcp.json**: 18개 직접등록 + Docker Gateway (요청시 로드)
@@ -176,7 +176,7 @@ AI CLI 호출: ❌ 불필요 (트리거 없음)
 
 호출: `"[에이전트명]로 [작업] 해줘"` 또는 키워드 자동 감지
 
-### ⚠️ Agent 역할 제한 (v3.3)
+### ⚠️ Agent 역할 제한 (v3.4)
 ```
 Task 에이전트 용도:
 ✅ 파일 읽기/탐색 (Read, Grep, Glob)
@@ -320,7 +320,7 @@ TDD 사이클: 🔴RED → 🟢GREEN → 🔄REFACTOR
 
 ---
 
-## 🚨 AI 분석 강제 규칙 (v3.3 - 실행 메커니즘)
+## 🚨 AI 분석 강제 규칙 (v3.4 - 다층 판단 시스템)
 
 ### ⚠️ 핵심: Task 에이전트 ≠ AI 분석
 
@@ -437,5 +437,5 @@ phi3:14b, codellama:7b, deepseek-coder:6.7b
 
 ---
 
-**버전**: v3.3 (워크플로우 순서 재정렬 + AI CLI 실행 메커니즘)
-**최종 수정**: 2026-01-12
+**버전**: v3.4 (다층 판단 시스템 - Layer 1~4 통합)
+**최종 수정**: 2026-01-13

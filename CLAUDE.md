@@ -1,5 +1,8 @@
-# CLAUDE.md v6.4.3 (Q&A + Error Handling + Agent Routing + Flexibility)
+# CLAUDE.md v6.4.4 (Q&A + Error Handling + Agent Routing + Flexibility)
 
+> **변경 로그 v6.4.4** (2026-01-17)
+> - PRECISION 키워드 추가: check/검토/체크
+>
 > **변경 로그 v6.4.3** (2026-01-17)
 > - VRAM 체크: 고정 임계값 제거 → Ollama 자동 관리 (가용 VRAM 최대 활용)
 > - Tier3 로컬 모델 현실화: llama3.1:8b, deepseek-r1:8b, cogito:latest (실제 설치 모델)
@@ -50,7 +53,7 @@
 ### Priority Order (우선순위)
 ```
 1. PIPELINE: /pipeline 또는 l 명령
-2. PRECISION: 키워드 (analyze/review/debug/fix/분석/리뷰/디버그/수정)
+2. PRECISION: 키워드 (analyze/review/debug/fix/check/분석/리뷰/디버그/수정/검토/체크)
 3. SIMPLE: 파일 경로 + 단순 요청 (키워드 미포함)
 4. CONVERSATION: 질문/인사만 (도구 불필요)
 ```
@@ -59,7 +62,7 @@
 | Trigger | Mode | Action |
 |---------|------|--------|
 | `/pipeline` or `l` | PIPELINE | Auto-chaining: 기획→개발→테스트→리뷰 |
-| Keywords: analyze/review/debug/fix/분석/리뷰/디버그/수정 | PRECISION | Full Q&A Loop → AI parallel (가능한 경우) |
+| Keywords: analyze/review/debug/fix/check/분석/리뷰/디버그/수정/검토/체크 | PRECISION | Full Q&A Loop → AI parallel (가능한 경우) |
 | File path + simple request (봐줘/열어줘/보여줘) | SIMPLE | Q&A Loop → parallel tools |
 | Questions/greetings only | CONVERSATION | Respond directly without tools |
 
